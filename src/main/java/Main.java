@@ -1,20 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        List<GroupDAO> lstCheck = addData();
+        List<GroupDTO> lstCheck = addData();
+        for (GroupDTO checkVariable : lstCheck) {
 
-//        List<GroupDAO> consts = lstCheck.stream().skip(0).collect(Collectors.toList());
-//        List<GroupDAO> result = lstCheck.stream().skip(0).collect(Collectors.toList());
-
-
-
-
-        for (GroupDAO checkVariable : lstCheck) {
+            // chi truyen vao node goc, con node con se tu tinh bang de quy
             if (checkVariable.getParent() == null) {
 
                 sum(checkVariable, lstCheck);
@@ -25,34 +19,35 @@ public class Main {
         System.out.println("test");
     }
 
-    public static GroupDAO sum(GroupDAO groupDAO, List<GroupDAO> lst) {
-        for (GroupDAO check : lst) {
+
+    public static GroupDTO sum(GroupDTO groupDTO, List<GroupDTO> lst) {
+        for (GroupDTO check : lst) {
             if (check.getParent() != null) {
-                if (check.getParent() == groupDAO.getId()) {
-                    groupDAO.setTotal(sum(check, lst).getTotal() + groupDAO.getTotal() + 1);
+                if (check.getParent() == groupDTO.getId()) {
+                    groupDTO.setTotal(sum(check, lst).getTotal() + groupDTO.getTotal() + 1);
                 }
             }
         }
-        return groupDAO;
+        return groupDTO;
     }
 
-    public static List<GroupDAO> addData() {
+    public static List<GroupDTO> addData() {
 //        Check check = new Check(1l, 0, null);
-        GroupDAO check1 = new GroupDAO(1l, 0, null);
-        GroupDAO check2 = new GroupDAO(2l, 0, 1l);
-        GroupDAO check3 = new GroupDAO(3l, 0, 2l);
+        GroupDTO check1 = new GroupDTO(1l, 0, null);
+        GroupDTO check2 = new GroupDTO(2l, 0, 1l);
+        GroupDTO check3 = new GroupDTO(3l, 0, 2l);
 //        Check check4 = new Check(4l, 0, 1l);
-        GroupDAO check5 = new GroupDAO(5l, 0, 3l);
+        GroupDTO check5 = new GroupDTO(5l, 0, 3l);
 
 
-        GroupDAO check1s = new GroupDAO(6l, 0, null);
-        GroupDAO check2s = new GroupDAO(7l, 0, 5l);
-        GroupDAO check3s = new GroupDAO(53l, 0, null);
-        GroupDAO check4s = new GroupDAO(71l, 0, null);
-        GroupDAO check5s = new GroupDAO(73l, 0, null);
+        GroupDTO check1s = new GroupDTO(6l, 0, null);
+        GroupDTO check2s = new GroupDTO(7l, 0, 5l);
+        GroupDTO check3s = new GroupDTO(53l, 0, null);
+        GroupDTO check4s = new GroupDTO(71l, 0, null);
+        GroupDTO check5s = new GroupDTO(73l, 0, null);
 
 
-        List<GroupDAO> lstCheck = new ArrayList<GroupDAO>();
+        List<GroupDTO> lstCheck = new ArrayList<GroupDTO>();
 //        lstCheck.add(check);
         lstCheck.add(check1);
         lstCheck.add(check2);

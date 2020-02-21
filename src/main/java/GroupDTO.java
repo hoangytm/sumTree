@@ -2,12 +2,12 @@
  * @author PhanHoang
  * 2/20/2020
  */
-public class GroupDAO {
+public class GroupDTO {
     private  Long id;
     private  int total;
     private Long parent;
 
-    public GroupDAO(Long id, int total, Long parentId) {
+    public GroupDTO(Long id, int total, Long parentId) {
         this.id = id;
         this.total = total;
         this.parent = parentId;
