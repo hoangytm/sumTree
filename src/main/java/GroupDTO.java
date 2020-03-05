@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * @author PhanHoang
  * 2/20/2020
@@ -6,11 +8,15 @@ public class GroupDTO {
     private  Long id;
     private  int total;
     private Long parent;
+    private List<GroupDTO> child;
 
     public GroupDTO(Long id, int total, Long parentId) {
         this.id = id;
         this.total = total;
         this.parent = parentId;
+    }
+    public GroupDTO(){
+
     }
 
     public Long getId() {
@@ -35,5 +41,13 @@ public class GroupDTO {
 
     public void setParent(Long parent) {
         this.parent = parent;
+    }
+
+    public List<GroupDTO> getChild() {
+        return child;
+    }
+
+    public void setChild(List<GroupDTO> child) {
+        this.child = child;
     }
 }
